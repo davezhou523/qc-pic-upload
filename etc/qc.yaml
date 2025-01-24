@@ -1,0 +1,27 @@
+Name: qc-api
+Host: 0.0.0.0
+Port: 8881
+Mode: dev
+Log:
+  ServiceName: qc-api
+  Level: error
+  Mode: file
+  KeepDays: 30
+  MaxSize: 500
+Oss:
+  Endpoint:
+  BucketName:
+  BucketDns:
+  AccessKeyId:
+  AccessKeySecret:
+Redis:
+
+InboxDir: &Inbox D:/QC/Inbox
+BackupDir: &Backup D:/QC/Backup
+FailedDir: &Failed D:/QC/Failed
+PublicDir: C:/QC
+TempDir: D:/QC/tempDir
+ListenDir:
+  Inbox: *Inbox
+  Backup: *Backup
+  Failed: *Failed

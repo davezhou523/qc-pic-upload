@@ -1,0 +1,57 @@
+syntax = "v1"
+
+info(
+	title: "type title here"
+	desc: "获取流水号"
+	author: "type author here"
+	email: "type email here"
+	version: "type version here"
+)
+
+type (
+	OrderAddRequest {
+		Sno      string `json:"sno"`                //流水号
+		Model    string `json:"model,optional"`     //型号
+		Num      int64  `json:"num,optional"`       //
+		Category int64  `json:"category,default=1"` //1:未打印流号号，2当日已打印的流水号
+	}
+)
+type AddResponse {
+	Code int64  `json:"code"`
+	Msg  string `json:"msg"`
+}
+type (
+	OrderAddPrintedRequest {
+		Barcode string `json:"barcode"`
+	}
+)
+
+type (
+	OrderListReq {
+		PageSize int64 `form:"pageSize"`
+		Category int64 `form:"category"` //1:未打印流号号，2当日已打印的流水号
+	}
+	OrderListResp {
+		List []string `json:"list"`
+	}
+)
+
+@server(
+	//    jwt: Auth
+	//    prefix:
+	//	middleware: Order
+	group: po
+)
+service qc {
+	@doc "采购订单"
+	@handler orderAdd // TODO: replace handler name and delete this comment
+	post /order/add (OrderAddRequest) returns (AddResponse)
+	
+	@doc "流水号列表"
+	@handler orderList
+	get /order/getList (OrderListReq) returns (OrderListResp)
+	
+	@doc "添加已打印的条码"
+	@handler printed
+	post /order/addPrinted (OrderAddPrintedRequest) returns (AddResponse)
+}

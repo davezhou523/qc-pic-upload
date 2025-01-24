@@ -1,0 +1,14 @@
+Name: qc-api
+Host: 0.0.0.0
+Port: 8882
+Mode: dev
+Log:
+  ServiceName: qc-api
+  Level: error
+  Mode: file
+  KeepDays: 30
+  MaxSize: 500
+RedisClient:
+  Addr: 119.23.56.80:6379
+  Password: 1234abcd!
+  DB: 0

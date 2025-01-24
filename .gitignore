@@ -1,0 +1,25 @@
+# idea
+.idea
+.idea/
+*.iml
+*.zip
+.DS_Store
+**/.DS_Store
+./tmp
+./logs/*
+#deploy data
+
+data/*
+!data/.gitkeep
+
+# gitlab ci
+.cache
+
+#vscode
+.vscode
+.vscode/
+
+
+/logs/
+/tmp/
+*.exe
