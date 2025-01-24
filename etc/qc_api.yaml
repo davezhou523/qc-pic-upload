@@ -1,9 +1,9 @@
-Name: qc-api
+Name: qcClient-api
 Host: 0.0.0.0
 Port: 8882
 Mode: dev
 Log:
-  ServiceName: qc-api
+  ServiceName: qcClient-api
   Level: error
   Mode: file
   KeepDays: 30

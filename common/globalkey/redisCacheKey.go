@@ -1,4 +1,4 @@
 package globalkey
 
-const CacheQcUnprint = "qc.unprint"
-const CacheQcPrinted = "qc.printed"
+const CacheQcUnprint = "qcClient.unprint"
+const CacheQcPrinted = "qcClient.printed"
